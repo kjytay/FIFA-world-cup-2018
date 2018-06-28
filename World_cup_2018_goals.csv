@@ -1,0 +1,117 @@
+Date,Stage,Home,Away,Team_scored,Player_scored,Time,Own_goal,Penalty
+2018-06-14,Group-1,Russia,Saudi Arabia,Russia,Yury Gazinksky,12,N,N
+2018-06-14,Group-1,Russia,Saudi Arabia,Russia,Denis Cheryshev,43,N,N
+2018-06-14,Group-1,Russia,Saudi Arabia,Russia,Denis Cheryshev,90+1,N,N
+2018-06-14,Group-1,Russia,Saudi Arabia,Russia,Artem Dzyuba,71,N,N
+2018-06-14,Group-1,Russia,Saudi Arabia,Russia,Aleksandr Golovin,90+4,N,N
+2018-06-15,Group-1,Egypt,Uruguay,Uruguay,Jose Gimenez,89,N,N
+2018-06-15,Group-1,Morocco,Iran,Iran,Aziz Bouhaddouz,90+5,Y,N
+2018-06-15,Group-1,Portugal,Spain,Portugal,Cristiano Ronaldo,43,N,Y
+2018-06-15,Group-1,Portugal,Spain,Portugal,Cristiano Ronaldo,44,N,N
+2018-06-15,Group-1,Portugal,Spain,Portugal,Cristiano Ronaldo,88,N,N
+2018-06-15,Group-1,Portugal,Spain,Spain,Diego Costa,24,N,N
+2018-06-15,Group-1,Portugal,Spain,Spain,Diego Costa,55,N,N
+2018-06-15,Group-1,Portugal,Spain,Spain,Nacho,58,N,N
+2018-06-16,Group-1,France,Australia,France,Antoine Griezmann,58,N,Y
+2018-06-16,Group-1,France,Australia,France,Aziz Behich,80,Y,N
+2018-06-16,Group-1,France,Australia,Australia,Mile Jedinak,62,N,Y
+2018-06-16,Group-1,Argentina,Iceland,Argentina,Sergio Aguero,19,N,N
+2018-06-16,Group-1,Argentina,Iceland,Iceland,Alfreo Finnbogason,23,N,N
+2018-06-16,Group-1,Peru,Denmark,Denmark,Yussuf Poulsen,59,N,N
+2018-06-16,Group-1,Croatia,Nigeria,Croatia,Oghenekaro Etebo,32,Y,N
+2018-06-16,Group-1,Croatia,Nigeria,Croatia,Luka Modric,71,N,Y
+2018-06-17,Group-1,Costa Rica,Serbia,Serbia,Aleksandar Kolarov,56,N,N
+2018-06-17,Group-1,Germany,Mexico,Mexico,Hirving Lozano,35,N,N
+2018-06-17,Group-1,Brazil,Switzerland,Brazil,Philippe Coutinho,20,N,N
+2018-06-17,Group-1,Brazil,Switzerland,Switzerland,Steven Zuber,50,N,N
+2018-06-18,Group-1,Sweden,South Korea,Sweden,Andreas Granqvist,65,N,Y
+2018-06-18,Group-1,Belgium,Panama,Belgium,Dries Mertens,47,N,N
+2018-06-18,Group-1,Belgium,Panama,Belgium,Romelu Lukaku,69,N,N
+2018-06-18,Group-1,Belgium,Panama,Belgium,Romelu Lukaku,75,N,N
+2018-06-18,Group-1,Tunisia,England,Tunisia,Ferjani Sassi,35,N,Y
+2018-06-18,Group-1,Tunisia,England,England,Harry Kane,11,N,N
+2018-06-18,Group-1,Tunisia,England,England,Harry Kane,90+1,N,N
+2018-06-19,Group-1,Colombia,Japan,Colombia,Juan Fernando Quintero,39,N,N
+2018-06-19,Group-1,Colombia,Japan,Japan,Shinji Kagawa,6,N,Y
+2018-06-19,Group-1,Colombia,Japan,Japan,Yuya Osako,73,N,N
+2018-06-19,Group-1,Poland,Senegal,Poland,Grzegorz Krychowiak,86,N,N
+2018-06-19,Group-1,Poland,Senegal,Senegal,Thiago Cionek,37,Y,N
+2018-06-19,Group-1,Poland,Senegal,Senegal,M'Baye Niang,60,N,N
+2018-06-19,Group-2,Russia,Egypt,Russia,Ahmed Fathy,47,Y,N
+2018-06-19,Group-2,Russia,Egypt,Russia,Denis Cheryshev,59,N,N
+2018-06-19,Group-2,Russia,Egypt,Russia,Artem Dzyuba,62,N,N
+2018-06-19,Group-2,Russia,Egypt,Egypt,Mohamed Salah,73,N,Y
+2018-06-20,Group-2,Portugal,Morocco,Portugal,Cristiano Ronaldo,4,N,N
+2018-06-20,Group-2,Uruguay,Saudi Arabia,Uruguay,Luis Suarez,23,N,N
+2018-06-20,Group-2,Iran,Spain,Spain,Diego Costa,54,N,N
+2018-06-21,Group-2,Denmark,Australia,Denmark,Christian Eriksen,7,N,N
+2018-06-21,Group-2,Denmark,Australia,Australia,Mile Jedinak,38,N,Y
+2018-06-21,Group-2,France,Peru,France,Kylian Mbappe,34,N,N
+2018-06-21,Group-2,Argentina,Croatia,Croatia,Ante Rebic,53,N,N
+2018-06-21,Group-2,Argentina,Croatia,Croatia,Luka Modric,80,N,N
+2018-06-21,Group-2,Argentina,Croatia,Croatia,Ivan Rakitic,90+1,N,N
+2018-06-22,Group-2,Brazil,Costa Rica,Brazil,Philippe Coutinho,90+1,N,N
+2018-06-22,Group-2,Brazil,Costa Rica,Brazil,Neymar,90+7,N,N
+2018-06-22,Group-2,Nigeria,Iceland,Nigeria,Ahmed Musa,49,N,N
+2018-06-22,Group-2,Nigeria,Iceland,Nigeria,Ahmed Musa,75,N,N
+2018-06-22,Group-2,Serbia,Switzerland,Serbia,Aleksandar Mitrovic,5,N,N
+2018-06-22,Group-2,Serbia,Switzerland,Switzerland,Granit Xhaka,52,N,N
+2018-06-22,Group-2,Serbia,Switzerland,Switzerland,Xherdan Shaqiri,90,N,N
+2018-06-23,Group-2,Belgium,Tunisia,Belgium,Eden Hazard,6,N,Y
+2018-06-23,Group-2,Belgium,Tunisia,Belgium,Eden Hazard,51,N,N
+2018-06-23,Group-2,Belgium,Tunisia,Belgium,Romelu Lukaku,16,N,N
+2018-06-23,Group-2,Belgium,Tunisia,Belgium,Romelu Lukaku,45+3,N,N
+2018-06-23,Group-2,Belgium,Tunisia,Belgium,Michy Batshuayi,90,N,N
+2018-06-23,Group-2,Belgium,Tunisia,Tunisia,Dylan Bronn,18,N,N
+2018-06-23,Group-2,Belgium,Tunisia,Tunisia,Wahbi Khazri,90+3,N,N
+2018-06-23,Group-2,South Korea,Mexico,South Korea,Son Heung-Min,90+3,N,N
+2018-06-23,Group-2,South Korea,Mexico,Mexico,Carlos Vela,26,N,Y
+2018-06-23,Group-2,South Korea,Mexico,Mexico,Javier Hernandez,66,N,N
+2018-06-23,Group-2,Germany,Sweden,Germany,Marco Reus,48,N,N
+2018-06-23,Group-2,Germany,Sweden,Germany,Toni Kroos,90+5,N,N
+2018-06-23,Group-2,Germany,Sweden,Sweden,Ola Toivonen,32,N,N
+2018-06-24,Group-2,England,Panama,England,John Stones,8,N,N
+2018-06-24,Group-2,England,Panama,England,John Stones,40,N,N
+2018-06-24,Group-2,England,Panama,England,Harry Kane,22,N,Y
+2018-06-24,Group-2,England,Panama,England,Harry Kane,45+1,N,Y
+2018-06-24,Group-2,England,Panama,England,Harry Kane,62,N,N
+2018-06-24,Group-2,England,Panama,England,Jesse Lingard,36,N,N
+2018-06-24,Group-2,England,Panama,Panama,Felipe Baloy,78,N,N
+2018-06-24,Group-2,Japan,Senegal,Japan,Takashi Inui,34,N,N
+2018-06-24,Group-2,Japan,Senegal,Japan,Keisuke Honda,78,N,N
+2018-06-24,Group-2,Japan,Senegal,Senegal,Sadio Mane,11,N,N
+2018-06-24,Group-2,Japan,Senegal,Senegal,Moussa Wague,71,N,N
+2018-06-24,Group-2,Poland,Colombia,Colombia,Yerry Mina,40,N,N
+2018-06-24,Group-2,Poland,Colombia,Colombia,Radamel Falcao,70,N,N
+2018-06-24,Group-2,Poland,Colombia,Colombia,Juan Cuadrado,75,N,N
+2018-06-25,Group-3,Saudi Arabia,Egypt,Saudi Arabia,Salman Al-Faraj,45+6,N,Y
+2018-06-25,Group-3,Saudi Arabia,Egypt,Saudi Arabia,Salem Al-Dawsari,90+5,N,N
+2018-06-25,Group-3,Saudi Arabia,Egypt,Egypt,Mohamed Salah,22,N,N
+2018-06-25,Group-3,Uruguay,Russia,Uruguay,Luis Suarez,10,N,N
+2018-06-25,Group-3,Uruguay,Russia,Uruguay,Denis Cheryshev,23,Y,N
+2018-06-25,Group-3,Uruguay,Russia,Uruguay,Edinson Cavani,90,N,N
+2018-06-25,Group-3,Iran,Portugal,Iran,Karim Ansarifard,90+3,N,Y
+2018-06-25,Group-3,Iran,Portugal,Portugal,Ricardo Quaresma,45,N,N
+2018-06-25,Group-3,Spain,Morocco,Spain,Isco,19,N,N
+2018-06-25,Group-3,Spain,Morocco,Spain,Iago Aspas,90+1,N,N
+2018-06-25,Group-3,Spain,Morocco,Morocco,Khalid Boutaib,14,N,N
+2018-06-25,Group-3,Spain,Morocco,Morocco,Youssef En-Nesyri,81,N,N
+2018-06-25,Group-3,Australia,Peru,Peru,Andre Carrillo,18,N,N
+2018-06-25,Group-3,Australia,Peru,Peru,Paolo Guerrero,50,N,N
+2018-06-26,Group-3,Nigeria,Argentina,Nigeria,Victor Moses,51,N,Y
+2018-06-26,Group-3,Nigeria,Argentina,Argentina,Lionel Messi,14,N,N
+2018-06-26,Group-3,Nigeria,Argentina,Argentina,Marcos Rojo,86,N,N
+2018-06-26,Group-3,Iceland,Croatia,Iceland,Gylfi Sigurosson,76,N,Y
+2018-06-26,Group-3,Iceland,Croatia,Croatia,Milan Badelj,53,N,N
+2018-06-26,Group-3,Iceland,Croatia,Croatia,Ivan Perisic,90,N,N
+2018-06-27,Group-3,Mexico,Sweden,Sweden,Ludwig Augustinsson,50,N,N
+2018-06-27,Group-3,Mexico,Sweden,Sweden,Andreas Granqvist,62,N,Y
+2018-06-27,Group-3,Mexico,Sweden,Sweden,Edson Alvarez,74,Y,N
+2018-06-27,Group-3,South Korea,Germany,South Korea,Kim Young-gwon,90+2,N,N
+2018-06-27,Group-3,South Korea,Germany,South Korea,Son Heung-Min,90+6,N,N
+2018-06-27,Group-3,Switzerland,Costa Rica,Switzerland,Blerim Dzemaili,31,N,N
+2018-06-27,Group-3,Switzerland,Costa Rica,Switzerland,Josip Drmic,88,N,N
+2018-06-27,Group-3,Switzerland,Costa Rica,Costa Rica,Kendall Waston,56,N,N
+2018-06-27,Group-3,Switzerland,Costa Rica,Costa Rica,Yann Sommer,90+3,Y,N
+2018-06-27,Group-3,Serbia,Brazil,Brazil,Paulinho,36,N,N
+2018-06-27,Group-3,Serbia,Brazil,Brazil,Thiago Silva,68,N,N
