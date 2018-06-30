@@ -1,0 +1,166 @@
+---
+title: "FIFA World Cup 2018-Possession"
+author: "Kenneth Tay"
+date: "6/29/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+At first glance, it would seem that having more possession of the ball should give a team a better result. Is this borne out in the world cup data?  
+
+```{r error=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+
+# theme for plots
+theme_update(plot.title = element_text(size = rel(1.5), face = "bold", hjust = 0.5),
+             axis.title = element_text(size = rel(1.2)))
+```
+
+Match and goals data was compiled from Google answer boxes, which seems to take data from foxsports.com. Rankings are as of 2018-06-07, and were taken from https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html. Data is available at https://github.com/kjytay/FIFA-world-cup-2018.  
+
+Load data:  
+```{r message=FALSE}
+country_df <- read_csv("World_cup_2018_country.csv")
+matches_df <- read_csv("World_cup_2018_matches.csv", 
+    col_types = cols(Date = col_date(format = "%Y-%m-%d")))
+goals_df <- read_csv("World_cup_2018_goals.csv", 
+    col_types = cols(Date = col_date(format = "%Y-%m-%d")))
+```
+
+Preview of the 3 datasets:
+```{r}
+kable(head(country_df))
+kable(head(matches_df))
+kable(head(goals_df))
+```
+
+Let's add columns to the matches dataset which indicate the result for the teams:
+```{r}
+matches_df <- matches_df %>% 
+    mutate(Home_result = ifelse(Home_goals > Away_goals, "Win", 
+                                ifelse(Home_goals < Away_goals, "Loss", "Draw")),
+           Away_result = ifelse(Home_result == "Win", "Loss",
+                                ifelse(Home_result == "Loss", "Win", "Draw")))
+```
+
+Home and away don't mean anything at the World Cup, so let's reshape the dataset such that each row represents the statistics for 1 team in 1 game. Let's also make the "result" column an ordinal variable.  
+```{r}
+home_df <- matches_df %>% select(Home, Home_result, Home_goals, Home_shots:Home_corners)
+away_df <- matches_df %>% select(Away, Away_result, Away_goals, Away_shots:Away_corners)
+colnames <- c("country", "result", "goals", "shots", "shots_on_target", 
+              "possession", "fouls", "yellow", "red", "offsides", "corners")
+names(home_df) <- colnames; names(away_df) <- colnames
+matches_team_df <- rbind(home_df, away_df)
+matches_team_df$result <- ordered(matches_team_df$result, levels = c("Loss", "Draw", "Win"))
+```
+
+## Summary statistics  
+
+Let's get a feel for how much possession a team has in a game. The maximum possession % a team had was `r max(matches_team_df$possession)`% (Spain in Spain vs. Iran and Argentina in Argentina vs. Iceland). The mean possession % for teams that had majority of the possession in the game was 61.75%.  
+```{r}
+sorted_possession <- sort(matches_team_df$possession)
+mean(sorted_possession[(nrow(matches_df) + 1):(2 * nrow(matches_df))])
+```
+
+Below is a histogram of possession % for all teams in all matches. As expected, the histogram is symmetric about 50%, since the 2 teams playing each other have possession adding up to 100%. Looking at just the teams with majority of the possession, the median percentage is 60.25%, indicated by the vertical red line.
+```{r}
+quantile(sort(matches_team_df$possession), 0.75)
+ggplot(matches_team_df, aes(x = possession)) +
+    geom_histogram(fill = "white", col = "black", binwidth = 5) + xlim(c(0, 100)) +
+    geom_vline(xintercept = quantile(sort(matches_team_df$possession), 0.75), 
+               col = "red") +
+    labs(title = "Histogram of Possession")
+```
+
+The table below shows the top 10 teams which had the most possession across their group games:
+```{r}
+matches_team_df %>% 
+    group_by(country) %>%
+    summarize(mean_possession = mean(possession)) %>%
+    arrange(desc(mean_possession)) %>%
+    head(n = 10)
+```
+
+I was a little surprised to see Saudi Arabia in the top 5. It turns out that they had the lion's share of possession against Russia even though they lost 5-0. Out of these 10 countries, only Germany(2) and Saudi Arabia(5) did not advance to the knockout stages.  
+
+## Possession and winning
+
+Does having more possession usually lead to a win? Below, we make boxplots of possession for each game outcome. The boxplots seem to indicate that having more possession leads to better results, although it's pretty hard to tell from the raw data. We could do ordinal logistic regression to quantify the effect of possession on the game result.  
+```{r}
+ggplot(matches_team_df, aes(x = result, y = possession)) +
+    geom_boxplot() +
+    geom_jitter(alpha = 0.5) + 
+    labs(title = "Boxplots of possession vs. game result")
+```
+
+Next, let's look at how possession is related to other positive outcomes in the game. Below is a scatterplot of goals vs. possession, with the red line being the linear regression fit and blue line being the LOESS smoother.  
+```{r}
+ggplot(matches_team_df, aes(x = possession, y = goals)) +
+    geom_jitter() +
+    geom_smooth(se = FALSE) +
+    geom_smooth(method = lm, se = FALSE, col = "red") +
+    labs(title = "No. of goals vs. possession")
+```
+
+The regression fits are remarkably flat, suggesting that possession doesn't have much to do with the number of goals scored. The $p$-value on the linear regression slope is 0.38.  
+```{r}
+summary(lm(goals ~ possession, data = matches_team_df))
+```
+
+
+Below is a scatterplot of goals vs. possession. There is a clear positive correlation here, and the linear fit isn't too bad.  
+```{r}
+ggplot(matches_team_df, aes(x = possession, y = shots)) +
+    geom_jitter() +
+    geom_smooth(se = FALSE) +
+    geom_smooth(method = lm, se = FALSE, col = "red") +
+    labs(title = "No. of shots vs. possession")
+```
+
+More possession often goes hand-in-hand with more shots, which is something one would expect.  
+```{r}
+summary(lm(shots ~ possession, data = matches_team_df))
+```
+
+Let's look next at shots on goal vs. possession. There still is a positive correlation but the slope of the linear fit is markedly flatter. ($p$-value on the linear fit slope is still very small.)  
+```{r}
+ggplot(matches_team_df, aes(x = possession, y = shots_on_target)) +
+    geom_jitter() +
+    geom_smooth(se = FALSE) +
+    geom_smooth(method = lm, se = FALSE, col = "red") +
+    labs(title = "No. of shots on target vs. possession")
+```
+
+```{r}
+summary(lm(shots_on_target ~ possession, data = matches_team_df))
+```
+
+We conclude that having more possession usually means more shots and more shots on target. Can we say whether having more possession leads to better quality shots? More specifically, does having more possession lead to a higher percentage of shots being on target?  
+```{r}
+ggplot(matches_team_df, 
+       aes(x = possession, y = shots_on_target / shots)) +
+    geom_point() + 
+    geom_smooth(se = FALSE) +
+    geom_smooth(method = lm, se = FALSE, col = "red") + 
+    labs(title = "shots on target % vs. possession")
+```
+
+Interestingly the percentage of shots being on target seems to have almost no correlation with possession.  
+```{r}
+summary(lm(shots_on_target / shots ~ possession, data = matches_team_df))
+```
+
+We can also see that somewhat from the plot below. If possession led to better quality shots, then the points at the bottom of the cluster would tend to be red while the points at the top would tend to be blue. We don't see that trend: rather, the points on the left tend to be red while the points on the right tend to be blue, regardless of height.  
+```{r}
+ggplot(matches_team_df, aes(x = shots, y = shots_on_target, col = possession)) +
+    geom_jitter(height = 0.3, width = 0.3) +
+    scale_color_gradient2(high = "blue", low = "red", mid = "purple", midpoint = 50) +
+    labs(title = "Shots on target vs. Shots")
+```
+
