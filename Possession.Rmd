@@ -2,7 +2,7 @@
 title: "FIFA World Cup 2018-Possession"
 author: "Kenneth Tay"
 date: "6/29/2018"
-output: html_document
+output: rmarkdown::github_document
 ---
 
 ```{r setup, include=FALSE}
