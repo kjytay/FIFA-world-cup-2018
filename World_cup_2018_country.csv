@@ -1,7 +1,7 @@
 Country,World_ranking,Tournament_ranking,Group,Group_score,Group_ranking,Last16,QFinals
 Germany,1,1,F,3,4,N,N
-Brazil,2,2,E,7,1,Y,
-Belgium,3,3,G,9,1,Y,
+Brazil,2,2,E,7,1,Y,Y
+Belgium,3,3,G,9,1,Y,Y
 Portugal,4,4,B,5,2,Y,N
 Argentina,5,5,D,4,2,Y,N
 Switzerland,6,6,E,5,2,Y,
@@ -12,7 +12,7 @@ Peru,11,10,C,3,3,N,N
 Denmark,12,11,C,5,2,Y,N
 England,13,12,G,6,2,Y,
 Uruguay,14,13,A,9,1,Y,Y
-Mexico,15,14,F,6,2,Y,
+Mexico,15,14,F,6,2,Y,N
 Colombia,16,15,H,6,1,Y,
 Croatia,20,16,D,9,1,Y,Y
 Tunisia,21,17,G,3,3,N,N
@@ -28,6 +28,6 @@ Egypt,45,26,A,0,4,N,N
 Nigeria,48,27,D,3,3,N,N
 Panama,55,28,G,0,4,N,N
 South Korea,57,29,F,3,3,N,N
-Japan,61,30,H,4,2,Y,
+Japan,61,30,H,4,2,Y,N
 Saudi Arabia,67,31,A,3,3,N,N
 Russia,70,32,A,6,2,Y,Y
