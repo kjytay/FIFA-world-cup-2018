@@ -22,15 +22,17 @@ theme_update(plot.title = element_text(size = rel(1.5), face = "bold", hjust = 0
              axis.title = element_text(size = rel(1.2)))
 ```
 
-Match and goals data was compiled from Google answer boxes, which seems to take data from foxsports.com. Rankings are as of 2018-06-07, and were taken from https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html. Data is available at https://github.com/kjytay/FIFA-world-cup-2018.  
+Match and goals data was compiled from Google answer boxes, which seems to take data from foxsports.com. Rankings are as of 2018-06-07, and were taken from https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html. Data is available at https://github.com/kjytay/FIFA-world-cup-2018. For this analysis, we only look at the group stage matches.  
 
 Load data:  
 ```{r message=FALSE}
 country_df <- read_csv("../Data/World_cup_2018_country.csv")
 matches_df <- read_csv("../Data/World_cup_2018_matches.csv", 
-    col_types = cols(Date = col_date(format = "%Y-%m-%d")))
+    col_types = cols(Date = col_date(format = "%Y-%m-%d"))) %>%
+    filter(Stage %in% c("Group-1", "Group-2", "Group-3"))
 goals_df <- read_csv("../Data/World_cup_2018_goals.csv", 
-    col_types = cols(Date = col_date(format = "%Y-%m-%d")))
+    col_types = cols(Date = col_date(format = "%Y-%m-%d"))) %>%
+    filter(Stage %in% c("Group-1", "Group-2", "Group-3"))
 ```
 
 Preview of the 3 datasets:

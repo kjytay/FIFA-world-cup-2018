@@ -17,16 +17,18 @@ theme_update(plot.title = element_text(size = rel(1.5), face = "bold", hjust = 0
              axis.title = element_text(size = rel(1.2)))
 ```
 
-Match and goals data was compiled from Google answer boxes, which seems to take data from foxsports.com. Rankings are as of 2018-06-07, and were taken from <https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html>. Data is available at <https://github.com/kjytay/FIFA-world-cup-2018>.
+Match and goals data was compiled from Google answer boxes, which seems to take data from foxsports.com. Rankings are as of 2018-06-07, and were taken from <https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html>. Data is available at <https://github.com/kjytay/FIFA-world-cup-2018>. For this analysis, we only look at the group stage matches.
 
 Load data:
 
 ``` r
 country_df <- read_csv("../Data/World_cup_2018_country.csv")
 matches_df <- read_csv("../Data/World_cup_2018_matches.csv", 
-    col_types = cols(Date = col_date(format = "%Y-%m-%d")))
+    col_types = cols(Date = col_date(format = "%Y-%m-%d"))) %>%
+    filter(Stage %in% c("Group-1", "Group-2", "Group-3"))
 goals_df <- read_csv("../Data/World_cup_2018_goals.csv", 
-    col_types = cols(Date = col_date(format = "%Y-%m-%d")))
+    col_types = cols(Date = col_date(format = "%Y-%m-%d"))) %>%
+    filter(Stage %in% c("Group-1", "Group-2", "Group-3"))
 ```
 
 Preview of the 3 datasets:
@@ -95,14 +97,14 @@ matches_team_df$result <- ordered(matches_team_df$result, levels = c("Loss", "Dr
 Summary statistics
 ------------------
 
-Let's get a feel for how much possession a team has in a game. The maximum possession % a team had was 79% (Spain in Spain vs. Iran and Argentina in Argentina vs. Iceland). The mean possession % for teams that had majority of the possession in the game was 61.75%.
+Let's get a feel for how much possession a team has in a game. The maximum possession % a team had was 78% (Spain in Spain vs. Iran and Argentina in Argentina vs. Iceland). The mean possession % for teams that had majority of the possession in the game was 61.75%.
 
 ``` r
 sorted_possession <- sort(matches_team_df$possession)
 mean(sorted_possession[(nrow(matches_df) + 1):(2 * nrow(matches_df))])
 ```
 
-    ## [1] 61.71429
+    ## [1] 61.75
 
 Below is a histogram of possession % for all teams in all matches. As expected, the histogram is symmetric about 50%, since the 2 teams playing each other have possession adding up to 100%. Looking at just the teams with majority of the possession, the median percentage is 60.25%, indicated by the vertical red line.
 
@@ -136,16 +138,16 @@ matches_team_df %>%
     ## # A tibble: 10 x 2
     ##    country      mean_possession
     ##    <chr>                  <dbl>
-    ##  1 Spain                   74.8
+    ##  1 Spain                   73.3
     ##  2 Germany                 72.3
-    ##  3 Argentina               66  
-    ##  4 Saudi Arabia            60  
-    ##  5 Switzerland             59.8
-    ##  6 Brazil                  58.5
-    ##  7 Belgium                 55.8
-    ##  8 England                 55  
-    ##  9 Portugal                54.8
-    ## 10 Japan                   54
+    ##  3 Argentina               67.7
+    ##  4 Brazil                  62  
+    ##  5 Saudi Arabia            60  
+    ##  6 Japan                   58  
+    ##  7 Switzerland             57  
+    ##  8 England                 55.7
+    ##  9 France                  55.3
+    ## 10 Belgium                 55
 
 I was a little surprised to see Saudi Arabia in the top 5. It turns out that they had the lion's share of possession against Russia even though they lost 5-0. Out of these 10 countries, only Germany(2) and Saudi Arabia(5) did not advance to the knockout stages.
 
@@ -189,18 +191,18 @@ summary(lm(goals ~ possession, data = matches_team_df))
     ## 
     ## Residuals:
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.4127 -1.1830 -0.2604  0.6555  4.6509 
+    ## -1.4545 -1.1446 -0.1981  0.6393  4.6527 
     ## 
     ## Coefficients:
     ##             Estimate Std. Error t value Pr(>|t|)  
-    ## (Intercept) 1.076132   0.412549   2.608   0.0104 *
-    ## possession  0.004549   0.007948   0.572   0.5683  
+    ## (Intercept) 0.888263   0.452710   1.962   0.0527 .
+    ## possession  0.007651   0.008725   0.877   0.3828  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 1.173 on 110 degrees of freedom
-    ## Multiple R-squared:  0.002969,   Adjusted R-squared:  -0.006095 
-    ## F-statistic: 0.3276 on 1 and 110 DF,  p-value: 0.5683
+    ## Residual standard error: 1.184 on 94 degrees of freedom
+    ## Multiple R-squared:  0.008114,   Adjusted R-squared:  -0.002438 
+    ## F-statistic: 0.769 on 1 and 94 DF,  p-value: 0.3828
 
 Below is a scatterplot of goals vs. possession. There is a clear positive correlation here, and the linear fit isn't too bad.
 
@@ -228,18 +230,18 @@ summary(lm(shots ~ possession, data = matches_team_df))
     ## 
     ## Residuals:
     ##      Min       1Q   Median       3Q      Max 
-    ## -10.8693  -2.7438  -0.3693   2.7797  10.6584 
+    ## -10.3646  -2.6414  -0.2521   1.9490  11.0302 
     ## 
     ## Coefficients:
     ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  1.08227    1.49739   0.723    0.471    
-    ## possession   0.22978    0.02885   7.965 1.64e-12 ***
+    ## (Intercept)  1.30189    1.61057   0.808    0.421    
+    ## possession   0.21771    0.03104   7.014 3.53e-10 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 4.256 on 110 degrees of freedom
-    ## Multiple R-squared:  0.3658, Adjusted R-squared:   0.36 
-    ## F-statistic: 63.45 on 1 and 110 DF,  p-value: 1.639e-12
+    ## Residual standard error: 4.214 on 94 degrees of freedom
+    ## Multiple R-squared:  0.3435, Adjusted R-squared:  0.3365 
+    ## F-statistic: 49.19 on 1 and 94 DF,  p-value: 3.525e-10
 
 Let's look next at shots on goal vs. possession. There still is a positive correlation but the slope of the linear fit is markedly flatter. (*p*-value on the linear fit slope is still very small.)
 
@@ -265,18 +267,18 @@ summary(lm(shots_on_target ~ possession, data = matches_team_df))
     ## 
     ## Residuals:
     ##     Min      1Q  Median      3Q     Max 
-    ## -4.7191 -1.4691 -0.2531  1.0635  8.1470 
+    ## -4.5796 -1.5224 -0.2425  1.1381  8.2289 
     ## 
     ## Coefficients:
     ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  0.58845    0.73013   0.806    0.422    
-    ## possession   0.06662    0.01407   4.736 6.53e-06 ***
+    ## (Intercept)  0.72393    0.77857   0.930    0.355    
+    ## possession   0.06219    0.01501   4.144 7.46e-05 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 2.075 on 110 degrees of freedom
-    ## Multiple R-squared:  0.1694, Adjusted R-squared:  0.1618 
-    ## F-statistic: 22.43 on 1 and 110 DF,  p-value: 6.532e-06
+    ## Residual standard error: 2.037 on 94 degrees of freedom
+    ## Multiple R-squared:  0.1545, Adjusted R-squared:  0.1455 
+    ## F-statistic: 17.17 on 1 and 94 DF,  p-value: 7.457e-05
 
 We conclude that having more possession usually means more shots and more shots on target. Can we say whether having more possession leads to better quality shots? More specifically, does having more possession lead to a higher percentage of shots being on target?
 
@@ -305,18 +307,18 @@ summary(lm(shots_on_target / shots ~ possession, data = matches_team_df))
     ## 
     ## Residuals:
     ##      Min       1Q   Median       3Q      Max 
-    ## -0.31420 -0.07943 -0.01047  0.07754  0.43796 
+    ## -0.31360 -0.08062 -0.00860  0.07635  0.43738 
     ## 
     ## Coefficients:
     ##               Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  0.3165823  0.0479900   6.597 1.52e-09 ***
-    ## possession  -0.0001082  0.0009245  -0.117    0.907    
+    ## (Intercept)  3.147e-01  5.213e-02   6.037  3.1e-08 ***
+    ## possession  -4.939e-05  1.005e-03  -0.049    0.961    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 0.1364 on 110 degrees of freedom
-    ## Multiple R-squared:  0.0001246,  Adjusted R-squared:  -0.008965 
-    ## F-statistic: 0.01371 on 1 and 110 DF,  p-value: 0.907
+    ## Residual standard error: 0.1364 on 94 degrees of freedom
+    ## Multiple R-squared:  2.572e-05,  Adjusted R-squared:  -0.01061 
+    ## F-statistic: 0.002417 on 1 and 94 DF,  p-value: 0.9609
 
 We can also see that somewhat from the plot below. If possession led to better quality shots, then the points at the bottom of the cluster would tend to be red while the points at the top would tend to be blue. We don't see that trend: rather, the points on the left tend to be red while the points on the right tend to be blue, regardless of height.
 

@@ -52,6 +52,7 @@ matches_df <- read_csv("../Data/World_cup_2018_matches.csv",
 
 # select relevant rows
 df <- matches_df %>%
+    filter(Stage %in% c("Group-1", "Group-2", "Group-3")) %>%
     select(Home:Away_goals)
 
 df <- df %>% 
