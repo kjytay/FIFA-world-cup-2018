@@ -46,8 +46,8 @@ Read in the "matches" dataset, select just the relevant columns, and add the "To
 ```{r message=FALSE}
 # read in data
 library(tidyverse)
-country_df <- read_csv("World_cup_2018_country.csv")
-matches_df <- read_csv("World_cup_2018_matches.csv", 
+country_df <- read_csv("../Data/World_cup_2018_country.csv")
+matches_df <- read_csv("../Data/World_cup_2018_matches.csv", 
                        col_types = cols(Date = col_date(format = "%Y-%m-%d")))
 
 # select relevant rows
