@@ -1,33 +1,33 @@
-Country,World_ranking,Tournament_ranking,Group,Group_score,Group_ranking,Last16,QFinals,SFinals
-Germany,1,1,F,3,4,N,N,N
-Brazil,2,2,E,7,1,Y,Y,N
-Belgium,3,3,G,9,1,Y,Y,Y
-Portugal,4,4,B,5,2,Y,N,N
-Argentina,5,5,D,4,2,Y,N,N
-Switzerland,6,6,E,5,2,Y,N,N
-France,7,7,C,7,1,Y,Y,Y
-Poland,8,8,H,3,4,N,N,N
-Spain,10,9,B,5,1,Y,N,N
-Peru,11,10,C,3,3,N,N,N
-Denmark,12,11,C,5,2,Y,N,N
-England,13,12,G,6,2,Y,Y,
-Uruguay,14,13,A,9,1,Y,Y,N
-Mexico,15,14,F,6,2,Y,N,N
-Colombia,16,15,H,6,1,Y,N,N
-Croatia,20,16,D,9,1,Y,Y,
-Tunisia,21,17,G,3,3,N,N,N
-Iceland,22,18,D,1,4,N,N,N
-Costa Rica,23,19,E,1,4,N,N,N
-Sweden,24,20,F,6,1,Y,Y,
-Senegal,27,21,H,4,3,N,N,N
-Serbia,34,22,E,3,3,N,N,N
-Australia,36,23,C,1,4,N,N,N
-Iran,37,24,B,4,3,N,N,N
-Morocco,41,25,B,1,4,N,N,N
-Egypt,45,26,A,0,4,N,N,N
-Nigeria,48,27,D,3,3,N,N,N
-Panama,55,28,G,0,4,N,N,N
-South Korea,57,29,F,3,3,N,N,N
-Japan,61,30,H,4,2,Y,N,N
-Saudi Arabia,67,31,A,3,3,N,N,N
-Russia,70,32,A,6,2,Y,Y,
+Country,World_ranking,Tournament_ranking,Group,Group_score,Group_ranking,Last16,QFinals,SFinals,Finals,Winner
+Germany,1,1,F,3,4,N,N,N,N,N
+Brazil,2,2,E,7,1,Y,Y,N,N,N
+Belgium,3,3,G,9,1,Y,Y,Y,,
+Portugal,4,4,B,5,2,Y,N,N,N,N
+Argentina,5,5,D,4,2,Y,N,N,N,N
+Switzerland,6,6,E,5,2,Y,N,N,N,N
+France,7,7,C,7,1,Y,Y,Y,,
+Poland,8,8,H,3,4,N,N,N,N,N
+Spain,10,9,B,5,1,Y,N,N,N,N
+Peru,11,10,C,3,3,N,N,N,N,N
+Denmark,12,11,C,5,2,Y,N,N,N,N
+England,13,12,G,6,2,Y,Y,Y,,
+Uruguay,14,13,A,9,1,Y,Y,N,N,N
+Mexico,15,14,F,6,2,Y,N,N,N,N
+Colombia,16,15,H,6,1,Y,N,N,N,N
+Croatia,20,16,D,9,1,Y,Y,Y,,
+Tunisia,21,17,G,3,3,N,N,N,N,N
+Iceland,22,18,D,1,4,N,N,N,N,N
+Costa Rica,23,19,E,1,4,N,N,N,N,N
+Sweden,24,20,F,6,1,Y,Y,N,N,N
+Senegal,27,21,H,4,3,N,N,N,N,N
+Serbia,34,22,E,3,3,N,N,N,N,N
+Australia,36,23,C,1,4,N,N,N,N,N
+Iran,37,24,B,4,3,N,N,N,N,N
+Morocco,41,25,B,1,4,N,N,N,N,N
+Egypt,45,26,A,0,4,N,N,N,N,N
+Nigeria,48,27,D,3,3,N,N,N,N,N
+Panama,55,28,G,0,4,N,N,N,N,N
+South Korea,57,29,F,3,3,N,N,N,N,N
+Japan,61,30,H,4,2,Y,N,N,N,N
+Saudi Arabia,67,31,A,3,3,N,N,N,N,N
+Russia,70,32,A,6,2,Y,Y,N,N,N
