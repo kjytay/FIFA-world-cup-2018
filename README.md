@@ -10,6 +10,7 @@ This repository contains FIFA World Cup 2018 data which I compiled from various 
 
 ## Analyses  
 
+- `Goals`: An analysis of goals scored during the World Cup.  
 - `Group_points`: A script which tabulates all possible point totals for a group, as well as the number of ways to obtain that point total.  
 - `PageRank`: An attempt to rank teams after the group stages using PageRank.  
 - `Possession`: An analysis on possession % for the group stages.  
